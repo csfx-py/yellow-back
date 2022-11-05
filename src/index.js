@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 5000;
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const morgan = require("morgan");
 
 app.use(express.json());
 app.use(
@@ -13,6 +14,7 @@ app.use(
     credentials: true,
   })
 );
+app.use(morgan("dev"));
 
 const mongoose = require("mongoose");
 const MONGO_URI = process.env.MONGO_URI;
